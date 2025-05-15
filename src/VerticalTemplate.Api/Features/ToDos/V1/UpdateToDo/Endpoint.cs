@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace VerticalTemplate.Api.Features.ToDos.V1.GetToDo;
+namespace VerticalTemplate.Api.Features.ToDos.V1.UpdateToDo;
 
-internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
+internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
 {
     private readonly IApplicationDbContext _applicationDbContext;
 
     public override void Configure()
     {
-        Get("ToDos/{id}");       
+        Put("ToDos/{id}");
         Version(1);
         AllowAnonymous();
         Description(x =>
-            x.Produces<Ok<Response>>()
+            x.Produces(StatusCodes.Status204NoContent)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithGroupName(GroupConstants.ToDoGroupName));
-        Summary(x => x.Description = "Used to get a ToDo");
+        Summary(x => x.Description = "Used to update a ToDo");
     }
 
     public Endpoint(IApplicationDbContext applicationDbContext)
@@ -23,7 +23,7 @@ internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
         _applicationDbContext = applicationDbContext;
     }
 
-    public override async Task HandleAsync(CancellationToken ct)
+    public override async Task HandleAsync(Request r, CancellationToken ct)
     {
         var id = Route<long>("id");
 
@@ -35,8 +35,12 @@ internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
             return;
         }
 
-        var response = Map.FromEntity(entity);
+        Map.UpdateEntity(r, entity);
 
-        await SendOkAsync(response, ct);
+        _applicationDbContext.TodoItems.Update(entity);
+
+        await _applicationDbContext.SaveChangesAsync(ct);
+
+        await SendNoContentAsync(ct);
     }
 }

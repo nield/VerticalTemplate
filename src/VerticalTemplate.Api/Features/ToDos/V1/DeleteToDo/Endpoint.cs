@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace VerticalTemplate.Api.Features.ToDos.V1.GetToDo;
+namespace VerticalTemplate.Api.Features.ToDos.V1.DeleteToDo;
 
-internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
+internal sealed class Endpoint : EndpointWithoutRequest<NoContent>
 {
     private readonly IApplicationDbContext _applicationDbContext;
 
     public override void Configure()
     {
-        Get("ToDos/{id}");       
+        Delete("ToDos/{id}");
         Version(1);
         AllowAnonymous();
         Description(x =>
-            x.Produces<Ok<Response>>()
+            x.Produces(StatusCodes.Status204NoContent)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithGroupName(GroupConstants.ToDoGroupName));
-        Summary(x => x.Description = "Used to get a ToDo");
+        Summary(x => x.Description = "Used to delete a ToDo");
     }
 
     public Endpoint(IApplicationDbContext applicationDbContext)
@@ -35,8 +35,10 @@ internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
             return;
         }
 
-        var response = Map.FromEntity(entity);
+        _applicationDbContext.TodoItems.Remove(entity);
 
-        await SendOkAsync(response, ct);
+        await _applicationDbContext.SaveChangesAsync(ct);
+
+        await SendNoContentAsync(ct);
     }
 }

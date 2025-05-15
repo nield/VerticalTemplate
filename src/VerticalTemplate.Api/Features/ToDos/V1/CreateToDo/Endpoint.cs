@@ -1,6 +1,6 @@
 ﻿namespace VerticalTemplate.Api.Features.ToDos.V1.CreateToDo;
 
-internal class Endpoint : Endpoint<Request, Response, Mapper>
+internal sealed class Endpoint : Endpoint<Request, Response, Mapper>
 {
     private readonly IApplicationDbContext _applicationDbContext;
 
