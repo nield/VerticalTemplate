@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace VerticalTemplate.Api.Features.ToDos.V1.DeleteToDo;
+﻿namespace VerticalTemplate.Api.Features.ToDos.V1.DeleteToDo;
 
 internal sealed class Endpoint : EndpointWithoutRequest<NoContent>
 {

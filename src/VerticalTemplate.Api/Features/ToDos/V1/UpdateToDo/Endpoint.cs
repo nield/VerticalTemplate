@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace VerticalTemplate.Api.Features.ToDos.V1.UpdateToDo;
+﻿namespace VerticalTemplate.Api.Features.ToDos.V1.UpdateToDo;
 
 internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
 {

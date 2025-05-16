@@ -5,6 +5,8 @@ namespace VerticalTemplate.Api.Infrastructure.Persistance;
 
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
+    public static readonly string MigrationTableName = "__EFMigrationsHistory";
+
     #region DbSets
 
     public DbSet<ToDoItem> TodoItems => Set<ToDoItem>();

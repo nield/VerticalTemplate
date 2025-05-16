@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace VerticalTemplate.Api.Features.ToDos.V1.GetToDo;
+﻿namespace VerticalTemplate.Api.Features.ToDos.V1.GetToDo;
 
 internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
 {
