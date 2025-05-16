@@ -10,7 +10,7 @@ internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
         Version(1);
         AllowAnonymous();
         Description(x =>
-            x.Produces<Ok<Response>>()
+            x.Produces<Response>()
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithGroupName(GroupConstants.ToDoGroupName));
         Summary(x => x.Description = "Used to get a ToDo");

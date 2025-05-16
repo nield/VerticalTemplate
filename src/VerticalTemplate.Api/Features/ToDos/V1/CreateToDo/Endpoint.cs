@@ -15,7 +15,7 @@ internal sealed class Endpoint : Endpoint<Request, Response, Mapper>
         Version(1);
         AllowAnonymous();
         Description(x =>
-            x.Produces<Response>()
+            x.Produces<Response>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithGroupName(GroupConstants.ToDoGroupName));
         Summary(x => x.Description = "Used to create a ToDo");

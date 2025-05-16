@@ -3,4 +3,5 @@ global using FizzWare.NBuilder;
 global using MockQueryable.NSubstitute;
 global using NSubstitute.ReturnsExtensions;
 global using FastEndpoints;
-global using Microsoft.AspNetCore.Http.HttpResults;
+
+global using StatusCodes = Microsoft.AspNetCore.Http.StatusCodes;

@@ -1,5 +1,4 @@
-﻿using System.Net;
-using VerticalTemplate.Api.Entities;
+﻿using VerticalTemplate.Api.Entities;
 using VerticalTemplate.Api.Features.ToDos.V1.UpdateToDo;
 
 namespace VerticalTemplate.Api.Tests.Features.ToDos.V1.UpdateToDo;
@@ -23,7 +22,7 @@ public class EndpointTests: BaseTestFixture
 
         await ep.HandleAsync(request, CancellationToken.None);
 
-        Assert.Equal((int)HttpStatusCode.NotFound, ep.HttpContext.Response.StatusCode);
+        Assert.Equal(StatusCodes.Status404NotFound, ep.HttpContext.Response.StatusCode);
     }
 
     [Fact]
@@ -45,6 +44,6 @@ public class EndpointTests: BaseTestFixture
 
         await ep.HandleAsync(request, CancellationToken.None);
 
-        Assert.Equal((int)HttpStatusCode.NoContent, ep.HttpContext.Response.StatusCode);
+        Assert.Equal(StatusCodes.Status204NoContent, ep.HttpContext.Response.StatusCode);
     }
 }

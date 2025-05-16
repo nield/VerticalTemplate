@@ -15,6 +15,16 @@ public class ToDoTests
     }
 
     [Fact]
+    public async Task GetAll_Should_ReturnData()
+    {
+        var sut = await _webApplicationFixture.HttpClient.GetFromJsonAsync<IEnumerable<Api.Features.ToDos.V1.GetAll.Response>>(
+            "/api/v1/todos");
+
+        Assert.NotNull(sut);
+        Assert.NotEmpty(sut);
+    }
+
+    [Fact]
     public async Task CreateToDoItem_GivenValidRequest_Should_ReturnCreated()
     {
         var payload = Builder<Api.Features.ToDos.V1.CreateToDo.Request>.CreateNew().Build();

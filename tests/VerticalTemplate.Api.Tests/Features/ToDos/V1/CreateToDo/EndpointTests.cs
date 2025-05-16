@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Net;
 using VerticalTemplate.Api.Features.ToDos.V1.CreateToDo;
 
 namespace VerticalTemplate.Api.Tests.Features.ToDos.V1.CreateToDo;
@@ -18,7 +17,7 @@ public class EndpointTests : BaseTestFixture
 
         await ep.HandleAsync(request, CancellationToken.None);
 
-        Assert.Equal((int)HttpStatusCode.Created, ep.HttpContext.Response.StatusCode);
+        Assert.Equal(StatusCodes.Status201Created, ep.HttpContext.Response.StatusCode);
         Assert.NotNull(ep.Response);        
     }
 }

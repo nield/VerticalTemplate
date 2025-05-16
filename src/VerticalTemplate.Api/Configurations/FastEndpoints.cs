@@ -6,18 +6,15 @@ internal static class FastEndpoints
 {
     internal static void ConfigureFastEndpoints(this IServiceCollection services)
     {
-        services.AddFastEndpoints(options =>
-        {
-            options.IncludeAbstractValidators = true;
-        })
+        services.AddFastEndpoints()
         .SwaggerDocument(opt =>
         {
             opt.MaxEndpointVersion = 1;
             opt.DocumentSettings = s =>
-            {
+            {                
                 s.Version = "v1";
                 s.Title = "API";
-                s.Description = "V1";
+                s.Description = "API Template";
             };
         });
     }
