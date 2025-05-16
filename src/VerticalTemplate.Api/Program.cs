@@ -26,8 +26,6 @@ app.UseFastEndpoints(options =>
 .UseDefaultExceptionHandler()
 .UseSwaggerGen();
 
-app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 
 await app.ApplyMigrations();
