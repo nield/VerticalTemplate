@@ -22,7 +22,9 @@ app.UseFastEndpoints(options =>
     options.Endpoints.RoutePrefix = "api";
 
     options.Errors.UseProblemDetails();
-}).UseSwaggerGen();
+})
+.UseDefaultExceptionHandler()
+.UseSwaggerGen();
 
 app.UseSwaggerUI();
 

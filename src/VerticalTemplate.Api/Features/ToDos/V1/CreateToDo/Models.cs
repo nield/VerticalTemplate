@@ -2,7 +2,7 @@
 
 namespace VerticalTemplate.Api.Features.ToDos.V1.CreateToDo;
 
-internal class Request
+internal sealed class Request
 {
     public required string Title { get; set; }
     public List<string> Tags { get; set; } = [];
@@ -16,7 +16,7 @@ internal class Request
     }
 }
 
-internal class Response
+internal sealed class Response
 {
     public required long Id { get; set; }
 }
