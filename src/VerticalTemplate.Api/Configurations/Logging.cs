@@ -4,7 +4,7 @@ namespace VerticalTemplate.Api.Configurations;
 
 internal static class Logging
 {
-    public static void ConfigureLogging(this WebApplicationBuilder builder)
+    internal static void ConfigureLogging(this WebApplicationBuilder builder)
     {
         builder.Logging.ClearProviders();
 
@@ -12,7 +12,7 @@ internal static class Logging
                                     => configuration.ReadFrom.Configuration(context.Configuration));
     }
 
-    public static void UseLogging(this WebApplication app)
+    internal static void UseLogging(this WebApplication app)
     {
         app.UseSerilogRequestLogging();
     }

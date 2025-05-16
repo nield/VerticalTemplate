@@ -2,9 +2,9 @@
 
 namespace VerticalTemplate.Api.Configurations;
 
-public static class ConfigureServices
+internal static class ConfigureServices
 {
-    public static IHostApplicationBuilder ConfigureApiServices(this IHostApplicationBuilder builder)
+    internal static IHostApplicationBuilder ConfigureApiServices(this IHostApplicationBuilder builder)
     {
         var config = builder.Configuration;
 
@@ -21,7 +21,5 @@ public static class ConfigureServices
         builder.SetupDatabase();
 
         return builder;
-    }
-
-    
+    }    
 }

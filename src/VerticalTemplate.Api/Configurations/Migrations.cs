@@ -2,9 +2,9 @@
 
 namespace VerticalTemplate.Api.Configurations;
 
-public static class Migrations
+internal static class Migrations
 {
-    public static async Task ApplyMigrations(this WebApplication webApplication)
+    internal static async Task ApplyMigrations(this WebApplication webApplication)
     {
         using var scope = webApplication.Services.CreateScope();
 
