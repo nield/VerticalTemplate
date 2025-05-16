@@ -53,8 +53,7 @@ public class WebApplicationFixture : IAsyncLifetime
 
             await Task.WhenAll(
                 DatabaseContainer.Instance.StartContainerAsync(cancellationSource.Token),
-                CacheContainer.Instance.StartContainerAsync(cancellationSource.Token),
-                RabbitContainer.Instance.StartContainerAsync(cancellationSource.Token));
+                CacheContainer.Instance.StartContainerAsync(cancellationSource.Token));
         }
         catch (Exception ex)
         {

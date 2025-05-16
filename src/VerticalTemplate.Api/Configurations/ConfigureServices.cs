@@ -20,6 +20,8 @@ internal static class ConfigureServices
 
         builder.SetupDatabase();
 
+        builder.ConfigureCache();
+
         return builder;
     }    
 }
