@@ -1,6 +1,6 @@
-﻿using FizzWare.NBuilder;
+﻿using System.Net;
 using System.Net.Http.Json;
-using System.Net;
+using FizzWare.NBuilder;
 
 namespace VerticalTemplate.Api.Integration.Tests.Features.ToDos.V1;
 
@@ -144,13 +144,13 @@ public class ToDoTests
 
             var response = await sut.Content.ReadFromJsonAsync<Api.Features.ToDos.V1.GetToDo.Response>();
 
-            Assert.NotNull(response);            
+            Assert.NotNull(response);
 
             return response;
         }
 
         Assert.Equal(HttpStatusCode.NotFound, sut.StatusCode);
-        
+
         return null;
     }
 }

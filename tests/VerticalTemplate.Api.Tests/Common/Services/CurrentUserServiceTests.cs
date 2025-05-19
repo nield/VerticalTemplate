@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using VerticalTemplate.Api.Common.Constants;
 using VerticalTemplate.Api.Common.Services;
 

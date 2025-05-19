@@ -3,7 +3,7 @@ using VerticalTemplate.Api.Features.ToDos.V1.UpdateToDo;
 
 namespace VerticalTemplate.Api.Tests.Features.ToDos.V1.UpdateToDo;
 
-public class EndpointTests: BaseTestFixture
+public class EndpointTests : BaseTestFixture
 {
     [Fact]
     public async Task Given_InvalidId_Should_ReturnNotFound()

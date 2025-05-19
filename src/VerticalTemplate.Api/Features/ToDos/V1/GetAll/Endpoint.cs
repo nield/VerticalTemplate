@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace VerticalTemplate.Api.Features.ToDos.V1.GetAll;
+﻿namespace VerticalTemplate.Api.Features.ToDos.V1.GetAll;
 
 internal sealed class Endpoint : EndpointWithoutRequest<IEnumerable<Response>, Mapper>
 {

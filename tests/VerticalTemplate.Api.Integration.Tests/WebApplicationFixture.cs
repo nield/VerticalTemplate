@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Respawn;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
+using Microsoft.Extensions.DependencyInjection;
+using Respawn;
 using VerticalTemplate.Api.Common.Constants;
 using VerticalTemplate.Api.Infrastructure.Persistance;
 using VerticalTemplate.Api.Integration.Tests.Containers;

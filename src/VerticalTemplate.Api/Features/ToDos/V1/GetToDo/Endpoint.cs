@@ -6,7 +6,7 @@ internal sealed class Endpoint : EndpointWithoutRequest<Response, Mapper>
 
     public override void Configure()
     {
-        Get("ToDos/{id}");       
+        Get("ToDos/{id}");
         Version(1);
         AllowAnonymous();
         Description(x =>

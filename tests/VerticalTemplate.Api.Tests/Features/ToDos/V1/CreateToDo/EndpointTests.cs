@@ -18,6 +18,6 @@ public class EndpointTests : BaseTestFixture
         await ep.HandleAsync(request, CancellationToken.None);
 
         Assert.Equal(StatusCodes.Status201Created, ep.HttpContext.Response.StatusCode);
-        Assert.NotNull(ep.Response);        
+        Assert.NotNull(ep.Response);
     }
 }

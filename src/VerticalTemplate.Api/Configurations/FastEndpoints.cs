@@ -13,7 +13,7 @@ internal static class FastEndpoints
         {
             opt.MaxEndpointVersion = 1;
             opt.DocumentSettings = s =>
-            {                
+            {
                 s.Version = "v1";
                 s.Title = "API";
                 s.Description = "API Template";

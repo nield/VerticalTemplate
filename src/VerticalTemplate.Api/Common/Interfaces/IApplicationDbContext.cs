@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace VerticalTemplate.Api.Common.Interfaces;
+﻿namespace VerticalTemplate.Api.Common.Interfaces;
 
 public interface IApplicationDbContext
 {

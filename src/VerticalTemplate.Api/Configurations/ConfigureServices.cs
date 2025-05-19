@@ -25,5 +25,5 @@ internal static class ConfigureServices
         builder.ConfigureCache();
 
         return builder;
-    }    
+    }
 }
