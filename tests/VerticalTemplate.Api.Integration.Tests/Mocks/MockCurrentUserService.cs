@@ -1,7 +1,9 @@
-﻿using VerticalTemplate.Api.Common.Interfaces;
+﻿using System.Diagnostics.CodeAnalysis;
+using VerticalTemplate.Api.Common.Interfaces;
 
 namespace VerticalTemplate.Api.Integration.Tests.Mocks;
 
+[ExcludeFromCodeCoverage]
 public class MockCurrentUserService : ICurrentUserService
 {
     public string UserProfileId => "1";

@@ -1,5 +1,8 @@
-﻿namespace VerticalTemplate.Api.Integration.Tests.Containers;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace VerticalTemplate.Api.Integration.Tests.Containers;
+
+[ExcludeFromCodeCoverage]
 internal abstract class BaseContainer<TContainer>
     where TContainer : class, new()
 {

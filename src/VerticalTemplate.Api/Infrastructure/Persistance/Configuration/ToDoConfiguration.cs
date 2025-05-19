@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace VerticalTemplate.Api.Infrastructure.Persistance.Configuration;
 
+[ExcludeFromCodeCoverage]
 public class ToDoConfiguration : BaseConfiguration<ToDoItem>
 {
     public override string TableName => "ToDo";

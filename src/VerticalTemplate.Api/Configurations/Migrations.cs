@@ -1,7 +1,9 @@
-﻿using VerticalTemplate.Api.Infrastructure.Persistance;
+﻿using System.Diagnostics.CodeAnalysis;
+using VerticalTemplate.Api.Infrastructure.Persistance;
 
 namespace VerticalTemplate.Api.Configurations;
 
+[ExcludeFromCodeCoverage]
 internal static class Migrations
 {
     internal static async Task ApplyMigrations(this WebApplication webApplication)

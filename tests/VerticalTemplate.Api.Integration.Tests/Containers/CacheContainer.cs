@@ -1,7 +1,9 @@
-﻿using DotNet.Testcontainers.Builders;
+﻿using System.Diagnostics.CodeAnalysis;
+using DotNet.Testcontainers.Builders;
 
 namespace VerticalTemplate.Api.Integration.Tests.Containers;
 
+[ExcludeFromCodeCoverage]
 internal sealed class CacheContainer : BaseContainer<CacheContainer>
 {
     private const ushort CacheDefaultPort = 6379;

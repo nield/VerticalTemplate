@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using VerticalTemplate.Api.Infrastructure.Persistance;
 using VerticalTemplate.Api.Infrastructure.Persistance.Interceptors;
 
 namespace VerticalTemplate.Api.Configurations;
 
+[ExcludeFromCodeCoverage]
 internal static class Database
 {
     internal static void SetupDatabase(this IHostApplicationBuilder builder)

@@ -1,8 +1,10 @@
-﻿using DotNet.Testcontainers.Builders;
+﻿using System.Diagnostics.CodeAnalysis;
+using DotNet.Testcontainers.Builders;
 using Microsoft.Data.SqlClient;
 
 namespace VerticalTemplate.Api.Integration.Tests.Containers;
 
+[ExcludeFromCodeCoverage]
 internal sealed class DatabaseContainer : BaseContainer<DatabaseContainer>
 {
     private const string DatabaseName = "templateDb";

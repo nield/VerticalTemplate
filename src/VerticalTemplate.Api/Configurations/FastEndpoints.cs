@@ -1,7 +1,9 @@
-﻿using FastEndpoints.Swagger;
+﻿using System.Diagnostics.CodeAnalysis;
+using FastEndpoints.Swagger;
 
 namespace VerticalTemplate.Api.Configurations;
 
+[ExcludeFromCodeCoverage]
 internal static class FastEndpoints
 {
     internal static void ConfigureFastEndpoints(this IServiceCollection services)

@@ -1,7 +1,9 @@
-﻿using Serilog;
+﻿using System.Diagnostics.CodeAnalysis;
+using Serilog;
 
 namespace VerticalTemplate.Api.Configurations;
 
+[ExcludeFromCodeCoverage]
 internal static class Logging
 {
     internal static void ConfigureLogging(this WebApplicationBuilder builder)

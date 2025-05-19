@@ -1,7 +1,9 @@
-﻿using VerticalTemplate.Api.Common.Services;
+﻿using System.Diagnostics.CodeAnalysis;
+using VerticalTemplate.Api.Common.Services;
 
 namespace VerticalTemplate.Api.Configurations;
 
+[ExcludeFromCodeCoverage]
 internal static class ConfigureServices
 {
     internal static IHostApplicationBuilder ConfigureApiServices(this IHostApplicationBuilder builder)

@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace VerticalTemplate.Api.Infrastructure.Persistance.Configuration;
 
+[ExcludeFromCodeCoverage]
 public abstract class BaseConfiguration<TEntity> : IEntityTypeConfiguration<TEntity>
     where TEntity : BaseEntity
 {

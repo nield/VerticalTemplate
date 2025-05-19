@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using VerticalTemplate.Api.Integration.Tests.Mocks;
 
 namespace VerticalTemplate.Api.Integration.Tests;
 
+[ExcludeFromCodeCoverage]
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     public string DefaultUserId { get; set; } = "1";
