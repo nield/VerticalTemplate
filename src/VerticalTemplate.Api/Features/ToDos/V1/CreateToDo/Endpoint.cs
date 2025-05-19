@@ -2,11 +2,11 @@
 
 internal sealed class Endpoint : Endpoint<Request, Response, Mapper>
 {
-    private readonly IApplicationDbContext _applicationDbContext;
+    private readonly IToDoRepository _toDoRepository;
 
-    public Endpoint(IApplicationDbContext applicationDbContext)
+    public Endpoint(IToDoRepository toDoRepository)
     {
-        _applicationDbContext = applicationDbContext;
+        _toDoRepository = toDoRepository;
     }
 
     public override void Configure()
@@ -25,9 +25,7 @@ internal sealed class Endpoint : Endpoint<Request, Response, Mapper>
     {
         var entity = Map.ToEntity(req);
 
-        _applicationDbContext.TodoItems.Add(entity);
-
-        await _applicationDbContext.SaveChangesAsync(ct);
+        await _toDoRepository.AddAsync(entity, ct);
 
         var response = Map.FromEntity(entity);
 

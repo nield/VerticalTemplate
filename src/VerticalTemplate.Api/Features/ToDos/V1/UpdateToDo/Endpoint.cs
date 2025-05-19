@@ -2,7 +2,7 @@
 
 internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
 {
-    private readonly IApplicationDbContext _applicationDbContext;
+    private readonly IToDoRepository _toDoRepository;
 
     public override void Configure()
     {
@@ -16,16 +16,16 @@ internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
         Summary(x => x.Description = "Used to update a ToDo");
     }
 
-    public Endpoint(IApplicationDbContext applicationDbContext)
+    public Endpoint(IToDoRepository toDoRepository)
     {
-        _applicationDbContext = applicationDbContext;
+        _toDoRepository = toDoRepository;
     }
 
     public override async Task HandleAsync(Request r, CancellationToken ct)
     {
         var id = Route<long>("id");
 
-        var entity = await _applicationDbContext.TodoItems.FindAsync(id, ct);
+        var entity = await _toDoRepository.GetByIdAsync(id, ct);
 
         if (entity is null)
         {
@@ -35,10 +35,7 @@ internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
 
         Map.UpdateEntity(r, entity);
 
-        _applicationDbContext.TodoItems.Attach(entity); //Used to force update on Tags
-        _applicationDbContext.TodoItems.Update(entity);
-
-        await _applicationDbContext.SaveChangesAsync(ct);
+        await _toDoRepository.UpdateAsync(entity, ct);
 
         await SendNoContentAsync(ct);
     }

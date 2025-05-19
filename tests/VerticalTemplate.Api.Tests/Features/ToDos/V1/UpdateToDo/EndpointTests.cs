@@ -12,13 +12,13 @@ public class EndpointTests: BaseTestFixture
 
         var request = Builder<Request>.CreateNew().Build();
 
-        _applicationDbContextMock.TodoItems.FindAsync(id, Arg.Any<CancellationToken>())
+        _toDoRepositoryMock.GetByIdAsync(id, Arg.Any<CancellationToken>())
             .ReturnsNull();
 
         var ep = Factory.Create<Endpoint>(ctx =>
         {
             ctx.Request.RouteValues.Add("id", id);
-        }, _applicationDbContextMock);
+        }, _toDoRepositoryMock);
 
         await ep.HandleAsync(request, CancellationToken.None);
 
@@ -34,13 +34,13 @@ public class EndpointTests: BaseTestFixture
 
         var item = Builder<ToDoItem>.CreateNew().Build();
 
-        _applicationDbContextMock.TodoItems.FindAsync(id, Arg.Any<CancellationToken>())
+        _toDoRepositoryMock.GetByIdAsync(id, Arg.Any<CancellationToken>())
             .Returns(item);
 
         var ep = Factory.Create<Endpoint>(ctx =>
         {
             ctx.Request.RouteValues.Add("id", id);
-        }, _applicationDbContextMock);
+        }, _toDoRepositoryMock);
 
         await ep.HandleAsync(request, CancellationToken.None);
 

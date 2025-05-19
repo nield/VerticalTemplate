@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 using VerticalTemplate.Api.Infrastructure.Persistance;
 using VerticalTemplate.Api.Infrastructure.Persistance.Interceptors;
 
@@ -16,6 +15,8 @@ internal static class Database
 
         builder.Services.AddScoped<ISaveChangesInterceptor, AuditableEntitySaveChangesInterceptor>();
 
+        builder.Services.SetupRepositories();
+
         builder.Services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
@@ -25,5 +26,13 @@ internal static class Database
         }, ServiceLifetime.Scoped);
 
         builder.EnrichSqlServerDbContext<ApplicationDbContext>();
+    }
+
+    private static void SetupRepositories(this IServiceCollection services)
+    {
+        services.Scan(scan => scan.FromAssemblyOf<IApplicationDbContext>()
+                                    .AddClasses(c => c.AssignableTo(typeof(IRepository<>)))
+                                    .AsImplementedInterfaces()
+                                    .WithScopedLifetime());
     }
 }

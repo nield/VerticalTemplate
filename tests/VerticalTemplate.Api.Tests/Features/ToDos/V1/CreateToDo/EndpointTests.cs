@@ -13,7 +13,7 @@ public class EndpointTests : BaseTestFixture
         var ep = Factory.Create<Endpoint>(ctx =>
         {
             ctx.AddTestServices(s => s.AddSingleton(_linkGeneratorMock));
-        }, _applicationDbContextMock);
+        }, _toDoRepositoryMock);
 
         await ep.HandleAsync(request, CancellationToken.None);
 

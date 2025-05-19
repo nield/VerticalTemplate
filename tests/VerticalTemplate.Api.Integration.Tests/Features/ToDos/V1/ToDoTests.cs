@@ -119,6 +119,18 @@ public class ToDoTests
         await _webApplicationFixture.ResetDatabaseAsync();
     }
 
+    [Fact]
+    public async Task DeleteAllToDoItems_Should_ReturnNoContent()
+    {
+        var sut = await _webApplicationFixture.HttpClient.DeleteAsync(
+            $"/api/v1/todos");
+
+        Assert.NotNull(sut);
+        Assert.Equal(HttpStatusCode.NoContent, sut.StatusCode);
+
+        await _webApplicationFixture.ResetDatabaseAsync();
+    }
+
     private async Task<Api.Features.ToDos.V1.GetToDo.Response?> GetToDoById(long id, bool shouldExists)
     {
         var sut = await _webApplicationFixture.HttpClient.GetAsync(

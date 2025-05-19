@@ -23,4 +23,5 @@ public abstract class BaseTestFixture
     protected readonly IApplicationDbContext _applicationDbContextMock = Substitute.For<IApplicationDbContext>();
     protected readonly ICurrentUserService _currentUserServiceMock = Substitute.For<ICurrentUserService>();
     protected readonly LinkGenerator _linkGeneratorMock = Substitute.For<LinkGenerator>();
+    protected readonly IToDoRepository _toDoRepositoryMock = Substitute.For<IToDoRepository>();
 }
