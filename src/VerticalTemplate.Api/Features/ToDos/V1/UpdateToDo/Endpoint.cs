@@ -35,6 +35,7 @@ internal sealed class Endpoint : Endpoint<Request, NoContent, Mapper>
 
         Map.UpdateEntity(r, entity);
 
+        _applicationDbContext.TodoItems.Attach(entity); //Used to force update on Tags
         _applicationDbContext.TodoItems.Update(entity);
 
         await _applicationDbContext.SaveChangesAsync(ct);
